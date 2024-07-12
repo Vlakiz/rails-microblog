@@ -1,24 +1,36 @@
-# README
+# Ruby on Rails microblog application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an application which was made during reading "Ruby on Rails tutorial" book.
 
-Things you may want to cover:
+## License
 
-* Ruby version
+All source code in the [Ruby on Rails Tutorial] (https://www.railstutorial.org/)
+is available jointly under the MIT License and the Beerware
+License. See [LICENSE.md](LICENSE.md) for details.
 
-* System dependencies
+### Getting started
 
-* Configuration
+To get started with the application you should clone the repository and then install required gems:
+```
+gem install bundler -v 2.3.14
+bundle _2.3.14_ config set --local without 'production'
+bundle _2.3.14_ install
+```
 
-* Database creation
+Next you should migrate the database:
+```
+rails db:migrate
+```
 
-* Database initialization
+Then you should run the tests to make sure that everything is OK:
+```
+rails test
+```
 
-* How to run the test suite
+If the test suite passes, the app is ready for running on a local server:
+```
+rails server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Link to *the book*
+(https://www.railstutorial.org/book).
