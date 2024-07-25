@@ -77,24 +77,25 @@ guard :minitest, all_on_start: false do
   watch('app/controllers/relationships_controller.rb') do
     controller_test('relationships') + ['test/integration/following_test.rb']
   end
+end
 
-  def integration_tests(resourse = :all)
-    if resource == :all
-      Dir["test/integration/*"]
-    else
-      Dir["test/integration/#{resource}_*.rb"]
-    end
-  end
 
-  def interface_tests
-    integration_tests << "test/controllers"
+def integration_tests(resourse = :all)
+  if resource == :all
+    Dir["test/integration/*"]
+  else
+    Dir["test/integration/#{resource}_*.rb"]
   end
+end
 
-  def controller_test(resource)
-    "test/controllers/#{resource}_controller_test.rb"
-  end
+def interface_tests
+  integration_tests << "test/controllers"
+end
 
-  def resource_tests(resource)
-    integration_tests(resource) << controller_test(resource)
-  end
+def controller_test(resource)
+  "test/controllers/#{resource}_controller_test.rb"
+end
+
+def resource_tests(resource)
+  integration_tests(resource) << controller_test(resource)
 end
